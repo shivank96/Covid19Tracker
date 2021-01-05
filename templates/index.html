@@ -1,0 +1,33 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% load static %}
+    <tr><th>state name</th>
+{#    <th>Active</th>#}
+{#    <th>Confirmed</th>#}
+{#    <th>Deceased</th>#}
+{#    <th>Recovered</th>#}
+
+    </tr>
+
+    {% for x in data %}
+         <tr>
+    <th><a href="{% url 'open_state' %}?state_name={{ x }}">{{ x }}</a></th>
+{#         {% for y in info %}#}
+{#             {% for b,a in y.items %}#}
+{##}
+{##}
+{#    <th>{{ a.active }}</th>#}
+{#    <th>{{ a.confirmed }}</th>#}
+{#    <th>{{ a.deceased }}</th>#}
+{#    <th>{{ a.recovered }}</th>#}
+{#                 {% endfor %}#}
+{##}
+{#    {% endfor %}#}
+
+ </tr>
+
+    {% endfor %}
+
+
+
+{% endblock %}

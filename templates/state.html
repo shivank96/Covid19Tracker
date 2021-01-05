@@ -1,0 +1,37 @@
+{% extends 'common.html' %}
+
+{% block common %}
+    <form action="{% url 'refresh' %}">
+    <input type="hidden" name="state_name" value="{{ sname }}">
+    <h1 align="center" style="background-color: black;color: white;padding-bottom: 1%">WELCOME TO <font color="#663399"> {{ sname }} {{ data.statecode }}</font>
+        Covid_19 INFO PORTAL
+
+        <button type="submit" class="btn btn-outline-success" style="text-align: end">Refresh</button>
+
+    </h1>
+     </form>
+   <tr><th>District name</th><th>Active</th><th>Confirmed</th><th>Deceased</th><th>Cured</th></tr>
+    {% for x,y in data.districtData.items %}
+        <tr>
+{#        <th>{{ x }}</th>#}
+        <th>{{ x }}</th>
+        <th>{{ y.active }}</th>
+        <th>{{ y.confirmed }}</th>
+        <th>{{ y.deceased }}</th>
+        <th>{{ y.recovered }}</th>
+        </tr>
+    {% endfor %}
+    {% for a in info %}
+    <tr>
+    <th>Total</th>
+    <th>{{ a.active }}</th>
+    <th>{{ a.confirmed }}</th>
+    <th>{{ a.deceased }}</th>
+    <th>{{ a.recovered }}</th>
+    </tr>
+    {% endfor %}
+   <tr><th style="text-align: center" colspan="5"><form action="{% url 'main' %}">
+    <button type="submit" class="btn btn-outline-success">Back</button>
+   </form></th></tr>
+
+{% endblock %}
